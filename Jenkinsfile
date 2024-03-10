@@ -29,5 +29,12 @@ pipeline {
                 deploy adapters: [tomcat9(credentialsId: 'TomcatLogin', path: '', url: 'http://localhost:8080/')], contextPath: 'calculator', war: 'target/calculator.war'
             }
         }
+
+        stage ('Api Tests') {
+            steps {
+                git 'https://github.com/LucasSanchesFaustino/api-tests'
+                bat 'mvn test'
+            }
+        }
     }
 }
