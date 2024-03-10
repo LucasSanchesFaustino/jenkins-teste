@@ -32,8 +32,10 @@ pipeline {
 
         stage ('Api Tests') {
             steps {
-                git 'https://github.com/LucasSanchesFaustino/api-tests'
-                bat 'mvn test'
+                dir('api-tests') {
+                    git 'https://github.com/LucasSanchesFaustino/api-tests'
+                    bat 'mvn test'
+                }
             }
         }
     }
