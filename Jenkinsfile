@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage ('Just Test') {
             steps {
-                bat 'teste 123'
+                bat 'echo teste 123'
             }
         }
     }
