@@ -1,39 +1,38 @@
 package tests;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 import org.junit.jupiter.api.Test;
 
-import calculator.Calculator;
+import calculator.service.CalculatorService;
 
 class CalculatorTest {
 
 	@Test
 	void sumTest() {
-		Calculator calculator = new Calculator();
+		CalculatorService calculatorService = new CalculatorService();
 
-		assertEquals(4, calculator.sum(2, 2));
+		assertEquals(4, calculatorService.sum(2, 2));
 	}
 
 	@Test
 	void subtractTest() {
-		Calculator calculator = new Calculator();
+		CalculatorService calculatorService = new CalculatorService();
 
-		assertEquals(0, calculator.subtract(2, 2));
+		assertEquals(0, calculatorService.subtract(2, 2));
 	}
 	
 	@Test
-	void sumTestFail() {
-		Calculator calculator = new Calculator();
+	void multiplyTest() {
+		CalculatorService calculatorService = new CalculatorService();
 
-		assertNotEquals(3, calculator.sum(1, 1));
+		assertEquals(4, calculatorService.multiply(2, 2));
 	}
 	
 	@Test
-	void subtractTestFail() {
-		Calculator calculator = new Calculator();
+	void divideTest() {
+		CalculatorService calculatorService = new CalculatorService();
 
-		assertNotEquals(0, calculator.subtract(2, 4));
+		assertEquals(1, calculatorService.divide(2, 2));
 	}
 }
