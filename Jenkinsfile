@@ -23,5 +23,11 @@ pipeline {
                 }
             }
         }
+
+        stage ('Deploy backend') {
+            steps {
+                deploy adapters: [tomcat9(credentialsId: 'TomcatLogin', path: '', url: 'http://localhost:8080/')], contextPath: 'calculator', war: 'target/calculator.war'
+            }
+        }
     }
 }
